@@ -19,7 +19,7 @@ You will need the following environment.
   - Windows 10 or 11
 - build tools
   - CMAKE 3.10 or above
-  - VS 2019 or above(Windows SDK needed)
+  - VS 2019 (Windows SDK needed)
 - C++ 17 or above
 - OpenGL 3.0 or above
 
@@ -27,7 +27,7 @@ You will need the following environment.
 
 ``` bash 
 git clone git@github.com:hjb546827/Real-time-Raytracing-Renderer.git
-cd Renderer
+cd Real-time-Raytracing-Renderer
 cmake . -Bbuild -G "Visual Studio 16 2019"
 cmake --build build
 ```
