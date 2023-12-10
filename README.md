@@ -11,11 +11,9 @@ A realtime pathtracing renderer based on OptiX7. [Cilck here For detail.](./brie
 You will need the following environment.
 
 - OptiX 7.x SDK
-
 - OptiX7 supported hardware and display driver
   - A NVIDIA GPU with raytracing support. (such as NVIDIA GeForce GTX/RTX series)
   - Newest  NVIDIA Display Driver
-
 - CUDA Toolkit 11.0 or above
 - platform
   - Windows 10 or 11
@@ -23,11 +21,12 @@ You will need the following environment.
   - CMAKE 3.10 or above
   - VS 2019 or above(Windows SDK needed)
 - C++ 17 or above
+- OpenGL 3.0 or above
 
 ### Build
 
 ``` bash 
-git clone https
+git clone git@github.com:hjb546827/Real-time-Raytracing-Renderer.git
 cd Renderer
 cmake . -Bbuild -G "Visual Studio 16 2019"
 cmake --build build
