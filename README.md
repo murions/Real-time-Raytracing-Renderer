@@ -45,6 +45,7 @@ cd build
 
 - Translate camera: the middle mouse button
 - Rotate camera: the right mouse button
+- Zoom in/out: the mouse wheel
 - Change model: double-click the 'Scene Control' button and select model.
 - Change environment: the same as changing model.
 - Customize
@@ -82,7 +83,7 @@ cd build
   - [x] 9 prefabs
   - [ ] Muti-models support
   - [x] Realtime model-changing
-- [ ] Math Library
+- [x] Math Library
   - [x] GLM
   - [ ] Custom Math Library
 
