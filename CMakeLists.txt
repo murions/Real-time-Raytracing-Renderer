@@ -21,6 +21,14 @@ set(CMAKE_MODULE_PATH
 include(${CMAKE_SOURCE_DIR}/CMake/configure_optix.cmake)
 # 设置代码路径宏
 add_compile_definitions(PROJECT_DIR="${CMAKE_SOURCE_DIR}")
+add_compile_definitions(RESOURCE_DIR="${CMAKE_CURRENT_BINARY_DIR}")
+# 解压资源包
+file(MAKE_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/model)
+file(MAKE_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/texture)
+execute_process(COMMAND ${CMAKE_COMMAND} -E tar xvf ${CMAKE_SOURCE_DIR}/model/model.zip
+	WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/model)
+execute_process(COMMAND ${CMAKE_COMMAND} -E tar xvf ${CMAKE_SOURCE_DIR}/texture/texture.zip
+	WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/texture)
 # 选取项目文件
 file(GLOB srcs ${CMAKE_SOURCE_DIR}/src/*.h ${CMAKE_SOURCE_DIR}/src/*.cpp ${CMAKE_SOURCE_DIR}/include/glad/glad.c)
 file(GLOB ImGui ${CMAKE_SOURCE_DIR}/include/ImGui/*.h ${CMAKE_SOURCE_DIR}/include/ImGui/*.cpp)
@@ -33,7 +41,7 @@ file(COPY ${CMAKE_SOURCE_DIR}/imgui.ini DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
 # 寻找依赖库
 find_package(CUDA 11.0 REQUIRED)
 # 包含目录
-link_directories(${CMAKE_SOURCE_DIR}/lib)
+link_directories(${CMAKE_SOURCE_DIR}/include/GLFW)
 include_directories(${CMAKE_SOURCE_DIR}/include)
 include_directories(${CMAKE_SOURCE_DIR}/include/glm)
 include_directories(${CMAKE_SOURCE_DIR}/include/optix)

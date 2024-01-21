@@ -19,23 +19,28 @@
 #else
     const std::string project_dir = PROJECT_DIR"/";
 #endif
+#ifndef RESOURCE_DIR
+    const std::string resource_dir = "./";
+#else
+    const std::string resource_dir = RESOURCE_DIR"/";
+#endif
 // model
-const std::string minecraft = project_dir + "model/lost-empire/lost_empire.obj";
-const std::string cornellBox = project_dir + "model/CornellBox/CornellBox-Original.obj";
-const std::string sponza = project_dir + "model/sponza/really_new_sponza.obj";
-const std::string mitsuba = project_dir + "model/mitsuba/mitsuba.obj";
-const std::string cerberus = project_dir + "model/Cerberus_LP/Cerberus_LP.obj";
-const std::string helmet = project_dir + "model/helmet/helmet.obj";
-const std::string dragon = project_dir + "model/dragon3.obj";
-const std::string living_room = project_dir + "model/living_room/living_room.obj";
-const std::string spawn = project_dir + "model/vokselia_spawn/vokselia_spawn.obj";
+const std::string minecraft = resource_dir + "model/lost-empire/lost_empire.obj";
+const std::string cornellBox = resource_dir + "model/CornellBox/CornellBox-Original.obj";
+const std::string sponza = resource_dir + "model/sponza/really_new_sponza.obj";
+const std::string mitsuba = resource_dir + "model/mitsuba/mitsuba.obj";
+const std::string cerberus = resource_dir + "model/Cerberus_LP/Cerberus_LP.obj";
+const std::string helmet = resource_dir + "model/helmet/helmet.obj";
+const std::string dragon = resource_dir + "model/dragon3.obj";
+const std::string living_room = resource_dir + "model/living_room/living_room.obj";
+const std::string spawn = resource_dir + "model/vokselia_spawn/vokselia_spawn.obj";
 // texture
-const std::string cape_hill = project_dir + "texture/cape_hill_4k.hdr";
-const std::string golf = project_dir + "texture/limpopo_golf_course_4k.hdr";
-const std::string rainforest = project_dir + "texture/rainforest_trail_4k.hdr";
-const std::string garden = project_dir + "texture/studio_garden_4k.hdr";
-const std::string gazebo = project_dir + "texture/whipple_creek_gazebo_4k.hdr";
-const std::string night = project_dir + "texture/dikhololo_night_4k.hdr";
-const std::string fireplace = project_dir + "texture/fireplace_4k.hdr";
-const std::string museum = project_dir + "texture/museum_of_ethnography_4k.hdr";
+const std::string cape_hill = resource_dir + "texture/cape_hill_4k.hdr";
+const std::string golf = resource_dir + "texture/limpopo_golf_course_4k.hdr";
+const std::string rainforest = resource_dir + "texture/rainforest_trail_4k.hdr";
+const std::string garden = resource_dir + "texture/studio_garden_4k.hdr";
+const std::string gazebo = resource_dir + "texture/whipple_creek_gazebo_4k.hdr";
+const std::string night = resource_dir + "texture/dikhololo_night_4k.hdr";
+const std::string fireplace = resource_dir + "texture/fireplace_4k.hdr";
+const std::string museum = resource_dir + "texture/museum_of_ethnography_4k.hdr";
 #endif // TRACERCONFIG_H

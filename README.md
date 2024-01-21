@@ -12,14 +12,14 @@ You will need the following environment.
 
 - OptiX 7.x SDK
 - OptiX7 supported hardware and display driver
-  - A NVIDIA GPU with raytracing support. (such as NVIDIA GeForce GTX/RTX series)
+  - A NVIDIA GPU with raytracing support.
   - Newest  NVIDIA Display Driver
 - CUDA Toolkit 11.0 or above
 - platform
   - Windows 10 or 11
 - build tools
-  - CMAKE 3.10 or above
-  - VS 2019 (Windows SDK needed)
+  - CMAKE 3.15 or above
+  - MSVC (VS 2019, Windows SDK needed)
 - C++ 17 or above
 - OpenGL 3.0 or above
 
@@ -28,11 +28,13 @@ You will need the following environment.
 ``` bash 
 git clone git@github.com:hjb546827/Real-time-Raytracing-Renderer.git
 cd Real-time-Raytracing-Renderer
-cmake . -Bbuild -G "Visual Studio 16 2019"
+cmake -S . - B build -G "Visual Studio 16 2019"
 cmake --build build
 ```
 
 If failed, use cmake-gui to manually specify the path that warnings mentioned. 
+
+If you want to compile ptx shaders manually, add "-D COMPILE_CUDA_SHADERS=ON" when configuring the project.
 
 ### Run
 
@@ -89,9 +91,9 @@ cd build
 
 ## Performance
 
-|         No post-process         | With Progressive Sampling and filtering          | With OptiX AI Denoising                     |
-| :-----------------------------: | ------------------------------------------------ | ------------------------------------------- |
-| ![Origin](img/salle_origin.png) | ![With TAA and bi-filting](img/salle_bf_80f.png) | ![With  OptiX AI](img/salle_optixAI_ON.png) |
+|           No post-process            | With Progressive Sampling and filtering               | With OptiX AI Denoising                          |
+| :----------------------------------: | ----------------------------------------------------- | ------------------------------------------------ |
+| ![Origin](docs/img/salle_origin.png) | ![With TAA and bi-filting](docs/img/salle_bf_80f.png) | ![With  OptiX AI](docs/img/salle_optixAI_ON.png) |
 
 **Platform**
 
@@ -110,19 +112,10 @@ cd build
 
 ![](docs/img/mirror.png)
 
-**Platform**
-
-- Windows 10
-- Intel Core i7-10750H @ 2.6GHz (Laptop)
-- Nvidia GTX 1650Ti 4GB VRAM (Laptop)
-- 16GB RAM @ 3200 MHz
-
-**Rendering Results**
-
 ![](docs/img/sponza.png)
 
 ![](docs/img/mc.png)
 
 ![](docs/img/by.png)
 
-![](docs/img/mitsuba_diffuse.png)
+![](docs/img/reflect.png)
