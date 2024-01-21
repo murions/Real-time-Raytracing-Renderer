@@ -45,20 +45,20 @@ void main()
         vec4 col22b = texture(screenTexture, TexCoords + 3.0f * delta2);
 
         float w = 0.37004405286;
-        float w0a = compareColor(col, col0a, x_factor) * 0.31718061674;
-        float w0b = compareColor(col, col0b, x_factor) * 0.31718061674;
-        float w1a = compareColor(col, col1a, x_factor) * 0.19823788546;
-        float w1b = compareColor(col, col1b, x_factor) * 0.19823788546;
-        float w2a = compareColor(col, col2a, x_factor) * 0.11453744493;
-        float w2b = compareColor(col, col2b, x_factor) * 0.11453744493;
+        float w0a = compareColor(col, col0a, y_factor) * 0.31718061674;
+        float w0b = compareColor(col, col0b, y_factor) * 0.31718061674;
+        float w1a = compareColor(col, col1a, y_factor) * 0.19823788546;
+        float w1b = compareColor(col, col1b, y_factor) * 0.19823788546;
+        float w2a = compareColor(col, col2a, y_factor) * 0.11453744493;
+        float w2b = compareColor(col, col2b, y_factor) * 0.11453744493;
 
         float w2 = 0.37004405286;
-        float w20a = compareColor(col2, col20a, y_factor) * 0.31718061674;
-        float w20b = compareColor(col2, col20b, y_factor) * 0.31718061674;
-        float w21a = compareColor(col2, col21a, y_factor) * 0.19823788546;
-        float w21b = compareColor(col2, col21b, y_factor) * 0.19823788546;
-        float w22a = compareColor(col2, col22a, y_factor) * 0.11453744493;
-        float w22b = compareColor(col2, col22b, y_factor) * 0.11453744493;
+        float w20a = compareColor(col2, col20a, x_factor) * 0.31718061674;
+        float w20b = compareColor(col2, col20b, x_factor) * 0.31718061674;
+        float w21a = compareColor(col2, col21a, x_factor) * 0.19823788546;
+        float w21b = compareColor(col2, col21b, x_factor) * 0.19823788546;
+        float w22a = compareColor(col2, col22a, x_factor) * 0.11453744493;
+        float w22b = compareColor(col2, col22b, x_factor) * 0.11453744493;
 
         vec3 res;
         res = w * col.xyz;

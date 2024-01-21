@@ -140,7 +140,7 @@ int loadTexture(Model* model, std::map<std::string, int>& textures, const std::s
 		Texture* texture = new Texture;
 		texture->resolution = res;
 		texture->pixel = (uint32_t*)image;
-		// 直接导入会使图像翻转
+		// 鐩存帴瀵煎叆浼氫娇鍥惧儚缈昏浆
 		for (int y = 0; y < res.y / 2; y++) {
 			uint32_t* line_y = texture->pixel + y * res.x;
 			uint32_t* mirrored_y = texture->pixel + (res.y - 1 - y) * res.x;

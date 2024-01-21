@@ -42,3 +42,4 @@ dkms.conf
 .vs
 .vscode
 .git
+build

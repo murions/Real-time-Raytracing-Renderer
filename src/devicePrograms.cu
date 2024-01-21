@@ -89,10 +89,11 @@ extern "C" __global__ void __closesthit__radiance() {
 			prd.energy *= diffuse * sbtData.color * (1.0f / diffChance);
 		}
 		else if (roulette < diffChance + specChance) {	// specular
-			float smoothness = powf(1000.0f, optixLaunchParams.frame.roughness * optixLaunchParams.frame.roughness);
-			prd.direction = sampleHemiSphereAlpha(glm::reflect(rayDir, N), smoothness, prd.seed);
+			float smoothness = powf(1000.0f, 1.0f - optixLaunchParams.frame.roughness * optixLaunchParams.frame.roughness);
+			glm::vec3 R = glm::reflect(rayDir, N);
+			prd.direction = sampleHemiSphereAlpha(R, smoothness, prd.seed);
 			float f = 1.0f / (smoothness + 1.0f) + 1.0f;
-			prd.energy *= specular * glm::saturate(glm::dot(N, glm::normalize(prd.direction)) * f) * (1.0f / specChance);
+			prd.energy *= specular * glm::saturate(glm::dot(V, R) * f) * (1.0f / specChance);
 		}
 		else	// dropout
 		{

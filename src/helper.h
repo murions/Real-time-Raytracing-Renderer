@@ -1,7 +1,7 @@
 #ifndef __CUDACC__
 #define __CUDACC__
 #endif
-// Ğ°µÀÈ¥³ı±¨´í
+// é‚ªé“å»é™¤æŠ¥é”™
 #ifndef _ALLOW_COMPILER_AND_STL_VERSION_MISMATCH
 #define _ALLOW_COMPILER_AND_STL_VERSION_MISMATCH
 #endif
@@ -65,7 +65,7 @@ static __forceinline__ __device__ unsigned int wang_hash(unsigned int seed) {
 	seed = seed ^ (seed >> 15);
 	return seed;
 }
-// ²úÉú0-1µÄËæ»ú¸¡µãÊı
+// äº§ç”Ÿ0-1çš„éšæœºæµ®ç‚¹æ•°
 static __forceinline__ __device__ float getRandomFloat(unsigned int seed) {
 	return (wang_hash(seed) & 0xFFFFFF) / 16777216.0f;
 }
@@ -81,7 +81,7 @@ static __forceinline__ __device__ glm::vec2 Hammersley(unsigned int i, unsigned 
 	return glm::vec2(float(i) / float(N), RadicalInverse(i));
 }
 
-// ¼ÆËãÇĞÏß¿Õ¼ä
+// è®¡ç®—åˆ‡çº¿ç©ºé—´
 static __forceinline__ __device__ glm::mat3 getTangentSpace(glm::vec3 normal) {
 	glm::vec3 helper = glm::vec3(0, 1, 0);
 	if (abs(normal.y) > 0.999f)
@@ -90,7 +90,7 @@ static __forceinline__ __device__ glm::mat3 getTangentSpace(glm::vec3 normal) {
 	glm::vec3 binormal = glm::normalize(glm::cross(normal, tangent));
 	return glm::mat3(tangent, binormal, normal);
 }
-// ÓàÏÒ°ëÇò²ÉÑù
+// ä½™å¼¦åŠçƒé‡‡æ ·
 static __forceinline__ __device__ glm::vec3 sampleHemiSphere(glm::vec3 normal, unsigned int seed) {
 	float cosTheta = sqrtf(glm::max(0.001f, getRandomFloat(seed)));
 	float sinTheta = sqrtf(1.0f - cosTheta * cosTheta);
@@ -100,7 +100,7 @@ static __forceinline__ __device__ glm::vec3 sampleHemiSphere(glm::vec3 normal, u
 	return tangentSpaceDir * getTangentSpace(normal);
 
 }
-// ÓàÏÒÓë¾ùÔÈ»ìºÏ²ÉÑù
+// ä½™å¼¦ä¸å‡åŒ€æ··åˆé‡‡æ ·
 static __forceinline__ __device__ glm::vec3 sampleHemiSphereAlpha(glm::vec3 normal, float alpha, unsigned int seed) {
 	float cosTheta = powf(glm::max(0.001f, getRandomFloat(seed)), 1.0f / (1.0f + alpha));
 	float sinTheta = sqrtf(1.0f - cosTheta * cosTheta);
@@ -110,7 +110,7 @@ static __forceinline__ __device__ glm::vec3 sampleHemiSphereAlpha(glm::vec3 norm
 	return tangentSpaceDir * getTangentSpace(normal);
 
 }
-// GGXÖØÒªĞÔ²ÉÑù
+// GGXé‡è¦æ€§é‡‡æ ·
 static __forceinline__ __device__ glm::vec3 sampleHemiSphereGGX(glm::vec3 normal, float alpha, float alpha2, unsigned int seed) {
 	float rx = getRandomFloat(seed);
 	float ry = getRandomFloat(seed);

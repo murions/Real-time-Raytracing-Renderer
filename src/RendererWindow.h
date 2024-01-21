@@ -5,6 +5,7 @@
 #include "GLWindow.h"
 #include "Shader.h"
 #include "Renderer.h"
+#include <string>
 #include <vector>
 
 class RendererWindow : public GLCameraWindow {
@@ -68,7 +69,7 @@ public:
 		glEnableVertexAttribArray(1);
 		glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 4 * sizeof(float), (void*)(2 * sizeof(float)));
 
-		shader = Shader("../shader/vertex.glsl", "../shader/fragment.glsl");
+		shader = Shader(std::string(project_dir + "shader/vertex.glsl").c_str(), std::string(project_dir + "shader/fragment.glsl").c_str());
 	}
 
 	virtual void render() override {
@@ -225,7 +226,7 @@ public:
 		ImGui::End();
 		if (!ImGui::IsAnyItemActive())
 		{
-			// Êó±êÖĞ¼üÍÏ¶¯Æ½ÒÆ
+			// é¼ æ ‡ä¸­é”®æ‹–åŠ¨å¹³ç§»
 			if (ImGui::IsMouseDragging(ImGuiMouseButton_Middle))
 			{
 				dx -= io.MouseDelta.x * moveSpeed;
@@ -233,7 +234,7 @@ public:
 				renderer.launchParams.frame.frameCount = 0;
 				cameraFrame.modified = true;
 			}
-			// Êó±êÓÒ¼üÍÏ¶¯Ğı×ª
+			// é¼ æ ‡å³é”®æ‹–åŠ¨æ—‹è½¬
 			else if (ImGui::IsMouseDragging(ImGuiMouseButton_Right))
 			{
 				phi += io.MouseDelta.y * rotationSpeed;
@@ -243,7 +244,7 @@ public:
 				renderer.launchParams.frame.frameCount = 0;
 				cameraFrame.modified = true;
 			}
-			// Êó±ê¹öÂÖËõ·Å
+			// é¼ æ ‡æ»šè½®ç¼©æ”¾
 			else if (io.MouseWheel != 0.0f)
 			{
 				dz += scaleSpeed * io.MouseWheel;
@@ -439,31 +440,31 @@ public:
 			ImGui::Text("%.2f", renderer.launchParams.frame.specular);
 			ImGui::Text("specularTint:");
 			ImGui::SameLine(0, 0);
-			if (ImGui::SliderFloat("##16", &renderer.launchParams.frame.specularTint, 0, 100, ""))
+			if (ImGui::SliderFloat("##16", &renderer.launchParams.frame.specularTint, 0, 1, ""))
 				renderer.launchParams.frame.frameCount = 0;
 			ImGui::SameLine(200, 0);
 			ImGui::Text("%.2f", renderer.launchParams.frame.specularTint);
 			ImGui::Text("clearcoat:");
 			ImGui::SameLine(0, 0);
-			if (ImGui::SliderFloat("##25", &renderer.launchParams.frame.clearcoat, 0, 3, ""))
+			if (ImGui::SliderFloat("##25", &renderer.launchParams.frame.clearcoat, 0, 1, ""))
 				renderer.launchParams.frame.frameCount = 0;
 			ImGui::SameLine(200, 0);
 			ImGui::Text("%.2f", renderer.launchParams.frame.clearcoat);
 			ImGui::Text("clearcoatGloss:");
 			ImGui::SameLine(0, 0);
-			if (ImGui::SliderFloat("##26", &renderer.launchParams.frame.clearcoatGloss, 0, 100, ""))
+			if (ImGui::SliderFloat("##26", &renderer.launchParams.frame.clearcoatGloss, 0, 1, ""))
 				renderer.launchParams.frame.frameCount = 0;
 			ImGui::SameLine(200, 0);
 			ImGui::Text("%.2f", renderer.launchParams.frame.clearcoatGloss);
 			ImGui::Text("sheen:");
 			ImGui::SameLine(0, 0);
-			if (ImGui::SliderFloat("##35", &renderer.launchParams.frame.sheen, 0, 100, ""))
+			if (ImGui::SliderFloat("##35", &renderer.launchParams.frame.sheen, 0, 1, ""))
 				renderer.launchParams.frame.frameCount = 0;
 			ImGui::SameLine(200, 0);
 			ImGui::Text("%.2f", renderer.launchParams.frame.sheen);
 			ImGui::Text("sheenTint:");
 			ImGui::SameLine(0, 0);
-			if (ImGui::SliderFloat("##36", &renderer.launchParams.frame.sheenTint, 0, 100, ""))
+			if (ImGui::SliderFloat("##36", &renderer.launchParams.frame.sheenTint, 0, 1, ""))
 				renderer.launchParams.frame.frameCount = 0;
 			ImGui::SameLine(200, 0);
 			ImGui::Text("%.2f", renderer.launchParams.frame.sheenTint);

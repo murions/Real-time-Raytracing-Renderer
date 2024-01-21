@@ -2,7 +2,7 @@
 
 ## About
 
-A realtime pathtracing renderer based on OptiX7. [Cilck here For detail.](./brief.pdf)
+A realtime pathtracing renderer based on OptiX7. [Cilck here For detail.](docs/brief.pdf)
 
 ## Installation
 
@@ -102,13 +102,13 @@ cd build
 
 **Rendering Results**
 
-![](img/helmet.png)
+![](docs/img/helmet.png)
 
-![](img/livingroom.png)
+![](docs/img/livingroom.png)
 
-![](img/enableBSDF.png)
+![](docs/img/enableBSDF.png)
 
-![](img/mirror.png)
+![](docs/img/mirror.png)
 
 **Platform**
 
@@ -119,10 +119,10 @@ cd build
 
 **Rendering Results**
 
-![](img/sponza.png)
+![](docs/img/sponza.png)
 
-![](img/mc.png)
+![](docs/img/mc.png)
 
-![](img/by.png)
+![](docs/img/by.png)
 
-![](img/mitsuba_diffuse.png)
+![](docs/img/mitsuba_diffuse.png)

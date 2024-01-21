@@ -4,7 +4,7 @@
 int main() {
 	try {
 		Model* model = Model::loadOBJ(helmet);
-		Texture* background = Model::loadBackground("E:/studv/Renderer/PathTracer/texture/sunflowers_puresky_4k.hdr");
+		Texture* background = Model::loadBackground(golf);
 		
 		Camera camera = { glm::vec3(0, 2, 11), glm::vec3(0, 0, 0), glm::vec3(0, 1, 0) };
 		RendererWindow* rendererWindow = new RendererWindow("Path Tracer", model, background, camera, 0.01f, 0.01f, 0.2f);
